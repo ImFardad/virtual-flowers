@@ -1192,46 +1192,60 @@ body {
   animation-play-state: paused !important;
 }
 
-/* SOUND TOGGLE BUTTON */
+/* MINIMAL SOUND TOGGLE BUTTON */
 .sound-toggle {
   position: fixed;
-  top: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(107, 240, 255, 0.4);
-  background: rgba(10, 20, 30, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #6bf0ff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 15, 20, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   outline: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(107, 240, 255, 0.25);
+  opacity: 0.6;
+  transition: all 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
 .sound-toggle:hover {
-  border-color: rgba(107, 240, 255, 0.85);
-  background: rgba(15, 30, 48, 0.85);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), 0 0 25px rgba(107, 240, 255, 0.5);
-  transform: scale(1.08);
+  opacity: 1;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(10, 15, 20, 0.65);
+  transform: scale(1.06);
 }
 
 .sound-toggle:active {
   transform: scale(0.94);
 }
 
+.sound-toggle:not(.muted) {
+  opacity: 0.85;
+  color: #a7ffee;
+  border-color: rgba(167, 255, 238, 0.25);
+}
+
+.sound-toggle:not(.muted):hover {
+  opacity: 1;
+  color: #6bf0ff;
+  border-color: rgba(107, 240, 255, 0.5);
+}
+
 .sound-toggle .sound-icon {
-  width: 22px;
-  height: 22px;
-  stroke: #6bf0ff;
-  transition: transform 0.2s ease;
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: stroke 0.2s ease;
 }
 
 .sound-toggle.muted .sound-icon--on {
@@ -1243,23 +1257,23 @@ body {
 }
 
 .sound-toggle:not(.muted) .wave--1 {
-  animation: pulse-wave 1.6s ease-in-out infinite alternate;
+  animation: pulse-wave 1.8s ease-in-out infinite alternate;
 }
 
 .sound-toggle:not(.muted) .wave--2 {
-  animation: pulse-wave 1.6s ease-in-out infinite alternate 0.4s;
+  animation: pulse-wave 1.8s ease-in-out infinite alternate 0.3s;
 }
 
 @keyframes pulse-wave {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
+  0% { opacity: 0.25; }
+  100% { opacity: 0.95; }
 }
 
 @media (max-width: 768px) {
   .sound-toggle {
-    top: 16px;
-    right: 16px;
-    width: 42px;
-    height: 42px;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
   }
 }
